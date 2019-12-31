@@ -1,3 +1,5 @@
+This generates names of superheroes randomly.  
+
 first use -
 
 ```
