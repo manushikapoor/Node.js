@@ -60,3 +60,21 @@ Fruit.find(function(err,fruits){
   }
 
 });
+
+//updation
+Fruit.updateOne({_id:"5e2d9eaa35e6bd3dec611df8"},{rating:8.5},function(err){
+  if(err){
+    console.log(err);
+  }else{
+    console.log("value updated");
+  }
+});
+
+//deletion
+Fruit.deleteOne({name :"Apple"},function(err){
+  if(err){
+    console.log(err);
+  }else{
+    console.log("record deleted");
+  }
+});
