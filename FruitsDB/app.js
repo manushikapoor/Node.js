@@ -5,8 +5,15 @@ const mongoose = require("mongoose");
 mongoose.connect('mongodb://localhost:27017/fruitsDB', {useNewUrlParser: true,useUnifiedTopology: true} );
 
 const fruitSchema = new mongoose.Schema({
-  name: String,
-  rating : Number,
+  name: {
+    type: String,
+    required: true
+  },
+  rating :{
+    type: Number,
+    min: 1,
+    max: 10
+  } ,
   review: String
 });
 
@@ -31,14 +38,14 @@ const kiwi = new Fruit({
 });
 
 //inserting fruits to database
-// Fruit.insertMany([apple,orange,kiwi],function(err){
-//   if(err){
-//     console.log(err);
-//   }
-//   else{
-//     console.log("3 fruits inserted");
-//   }
-// });
+Fruit.insertMany([apple,orange,kiwi],function(err){
+  if(err){
+    console.log(err);
+  }
+  else{
+    console.log("3 fruits inserted");
+  }
+});
 
 //reading all fruits' names
 Fruit.find(function(err,fruits){
